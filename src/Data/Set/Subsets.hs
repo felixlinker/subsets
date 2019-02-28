@@ -47,6 +47,8 @@ subsetsAsc as =
 
 -- | Same as @'subsetsAsc'@ but subsets will be generated descending starting
 -- with all sets of size /n/ to /0/.
+--
+-- If the first argument is smaller than 0, all subsets will be generated.
 subsetsDesc :: [a] -> Int -> Int -> [[a]]
 subsetsDesc as =
     let map = Map.fromList $ indexes as
@@ -75,6 +77,8 @@ indexSetsAsc :: Int -> Int -> [Set.Set Int]
 indexSetsAsc = curry $ map Set.fromAscList . uncurry bankersSequenceLists
 
 -- | Same as 'indexSetsAsc' but in descending order.
+--
+-- If the first argument is smaller than 0, all index-sets will be generated.
 indexSetsDesc :: Int -> Int -> [Set.Set Int]
 indexSetsDesc = curry $ map Set.fromAscList . uncurry invBankersSequenceLists
 
@@ -91,5 +95,7 @@ mapIndexSetsAsc :: (Int -> a) -> Int -> Int -> [[a]]
 mapIndexSetsAsc f = curry $ map (map f) . uncurry bankersSequenceLists
 
 -- | Same as 'mapIndexSetsAsc' but in descending order.
+--
+-- If the first argument is smaller than 0, all subsets will be generated.
 mapIndexSetsDesc :: (Int -> a) -> Int -> Int-> [[a]]
 mapIndexSetsDesc f = curry $ map (map f) . uncurry invBankersSequenceLists

@@ -48,11 +48,16 @@ bankersSequenceLists from maxLen =
     let initial = [0..from - 1]
     in initial : bankersSequenceListsWith (next maxLen) (Just initial)
 
--- | Same as 'bankersSequenceLists' but in inverted order.
+-- | Same as 'bankersSequenceLists' but in inverted order starting at length /m/
+-- going to 0 for a maximum length of /n/.
+--
+-- If the first argument is smaller than 0, all index representations will be
+-- generated.
 invBankersSequenceLists :: Int -> Int -> [[Int]]
-invBankersSequenceLists from maxLen =
-    let initial = [0..from - 1]
-    in initial : bankersSequenceListsWith (prev maxLen) (Just initial)
+invBankersSequenceLists from maxLen
+    | from < 0 = invBankersSequenceLists maxLen maxLen
+    | otherwise = let initial = [0..from - 1]
+        in initial : bankersSequenceListsWith (prev maxLen) (Just initial)
 
 -- | /O(n)/.
 -- Try to generate the next index representation in the Banker's sequence a given
