@@ -1,7 +1,7 @@
 -- | Module: Data.Set.Subsets.BankersSequence
 -- Copyright:
 -- License:
--- Maintainer: felixlinker
+-- Maintainer: linkerfelix@gmail.com
 --
 -- This module generates the Banker's sequence which is an efficient enumeration
 -- for generating subsets in ascending (respective to their subset-order) or

@@ -2,7 +2,7 @@
 -- Description: Iterate over subsets efficiently
 -- Copyright:
 -- License:
--- Maintainer: felixlinker
+-- Maintainer: linkerfelix@gmail.com
 --
 -- This module provides methods to efficiently (especially when it comes to
 -- memory) over all subsets of a given base set.

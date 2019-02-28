@@ -1,9 +1,9 @@
 name:                subsets
 version:             0.1.0.0
-github:              "githubuser/subsets"
+github:              "felixlinker/subsets"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
+author:              "Felix Linker"
+maintainer:          "linkerfelix@gmail.com"
 copyright:           "2019 Author name here"
 
 extra-source-files:
