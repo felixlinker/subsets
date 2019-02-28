@@ -30,7 +30,7 @@ bankersSequence = map listToInt . bankersSequenceLists 0
 
 -- | Same as 'bankersSequence' but in inverted order.
 invBankersSequence :: Int -> [Int]
-invBankersSequence = map listToInt . invBankersSequenceLists 0
+invBankersSequence = map listToInt . (invBankersSequenceLists $ -1)
 
 listToInt :: [Int] -> Int
 listToInt = sum . (map (2^))
