@@ -1,7 +1,7 @@
 -- | Module: Data.Set.Subsets
 -- Description: Iterate over subsets efficiently
--- Copyright:
--- License:
+-- Copyright: 2019 Felix Linker
+-- License: MIT
 -- Maintainer: linkerfelix@gmail.com
 --
 -- This module provides methods to efficiently (especially when it comes to

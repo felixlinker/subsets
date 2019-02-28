@@ -1,10 +1,10 @@
 name:                subsets
 version:             0.1.0.0
 github:              "felixlinker/subsets"
-license:             BSD3
+license:             MIT
 author:              "Felix Linker"
 maintainer:          "linkerfelix@gmail.com"
-copyright:           "2019 Author name here"
+copyright:           "2019 Felix Linker"
 
 extra-source-files:
 - README.md

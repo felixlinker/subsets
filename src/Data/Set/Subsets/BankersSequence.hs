@@ -1,6 +1,6 @@
 -- | Module: Data.Set.Subsets.BankersSequence
--- Copyright:
--- License:
+-- Copyright: 2019 Felix Linker
+-- License: MIT
 -- Maintainer: linkerfelix@gmail.com
 --
 -- This module generates the Banker's sequence which is an efficient enumeration
