@@ -66,7 +66,9 @@ next :: Int -> Maybe [Int] -> Maybe [Int]
 next = (=<<) . (tryIncrement 0)
 
 tryIncrement :: Int -> Int -> [Int] -> Maybe [Int]
-tryIncrement read _ [] = Just [read]
+tryIncrement read maxLen []
+    | maxLen <= 0 = Nothing
+    | otherwise = Just [read]
 tryIncrement read maxLen (most:[])
     | most == maxLen - 1 =
         let read' = read + 1
