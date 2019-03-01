@@ -21,7 +21,7 @@ description:         Please see the README on GitHub at <https://github.com/feli
 
 dependencies:
 - base >= 4.7 && < 5
-- containers
+- containers >= 0.5.11.0
 
 library:
   source-dirs: src
@@ -36,4 +36,4 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - subsets
-    - QuickCheck
+    - QuickCheck >= 2.12.6.1
