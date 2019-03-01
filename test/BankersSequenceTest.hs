@@ -3,6 +3,7 @@ module BankersSequenceTest
     , bankersEqualsIndexSetsDesc
     ) where
 
+import Test.QuickCheck
 import Data.Set.Subsets
 import Data.Set.Subsets.BankersSequence
 import Control.Applicative
@@ -15,10 +16,10 @@ mkPropBankersEqualsIndexSets :: (Int -> [Int]) -> (Int -> [Set.Set Int]) -> (Int
 mkPropBankersEqualsIndexSets bankersMkr indexSetsMkr =
     (==) <$> bankersMkr <*> (indexSetsAsBinary . indexSetsMkr)
 
-bankersEqualsIndexSetsAsc :: Int -> Bool
-bankersEqualsIndexSetsAsc =
-    mkPropBankersEqualsIndexSets bankersSequence $ indexSetsAsc 0
+bankersEqualsIndexSetsAsc :: Int -> Property
+bankersEqualsIndexSetsAsc = label "Index sets as binary index sets interpreted equal Banker's sequence (asc)" .
+    (mkPropBankersEqualsIndexSets bankersSequence $ indexSetsAsc 0)
 
-bankersEqualsIndexSetsDesc :: Int -> Bool
-bankersEqualsIndexSetsDesc =
-    mkPropBankersEqualsIndexSets invBankersSequence $ indexSetsDesc (-1)
+bankersEqualsIndexSetsDesc :: Int -> Property
+bankersEqualsIndexSetsDesc = label "Index sets as binary index sets interpreted equal Banker's sequence (desc)" .
+    (mkPropBankersEqualsIndexSets invBankersSequence $ indexSetsDesc (-1))
