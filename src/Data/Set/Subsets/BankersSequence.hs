@@ -44,9 +44,10 @@ bankersSequenceListsWith step initial = case step initial of
 -- Generate the Banker's sequence as index representations starting at
 -- representations of length /m/ up to a maximum length of /n/.
 bankersSequenceLists :: Int -> Int -> [[Int]]
-bankersSequenceLists from maxLen =
-    let initial = [0..from - 1]
-    in initial : bankersSequenceListsWith (next maxLen) (Just initial)
+bankersSequenceLists from maxLen
+    | from > maxLen = []
+    | otherwise = let initial = [0..from - 1]
+        in initial : bankersSequenceListsWith (next maxLen) (Just initial)
 
 -- | Same as 'bankersSequenceLists' but in inverted order starting at length /m/
 -- going to 0 for a maximum length of /n/.
@@ -55,7 +56,7 @@ bankersSequenceLists from maxLen =
 -- generated.
 invBankersSequenceLists :: Int -> Int -> [[Int]]
 invBankersSequenceLists from maxLen
-    | from < 0 = invBankersSequenceLists maxLen maxLen
+    | from < 0 || maxLen < from = invBankersSequenceLists maxLen maxLen
     | otherwise = let initial = [0..from - 1]
         in initial : bankersSequenceListsWith (prev maxLen) (Just initial)
 
